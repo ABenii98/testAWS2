@@ -1,0 +1,16 @@
+{
+  "resourceName": "dynamo2482747d",
+  "tableName": "dynamo2482747d",
+  "partitionKey": {
+    "fieldName": "Name",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "Price",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "dynamo2482747dTrigger6c67c337"
+  ]
+}

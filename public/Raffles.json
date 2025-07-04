@@ -1,0 +1,38 @@
+{
+  "raffles": [
+    {
+      "name": "Charizard VMAX Raffle",
+      "prize": "Charizard VMAX Card",
+      "entryCost": 5.00,
+      "maxEntries": 100,
+      "entries": 45,
+      "endDate": "2025-07-10T23:59:59Z"
+    },
+    {
+      "name": "Pikachu V Raffle",
+      "prize": "Pikachu V Card",
+      "entryCost": 3.00,
+      "maxEntries": 50,
+      "entries": 50,
+      "endDate": "2025-06-25T23:59:59Z",
+      "winner": "User123"
+    },
+    {
+      "name": "Eevee V Raffle",
+      "prize": "Eevee V Card",
+      "entryCost": 4.00,
+      "maxEntries": 75,
+      "entries": 20,
+      "endDate": "2025-07-15T23:59:59Z"
+    },
+    {
+      "name": "Gengar V Raffle",
+      "prize": "Gengar V Card",
+      "entryCost": 6.00,
+      "maxEntries": 80,
+      "entries": 78,
+      "endDate": "2025-06-20T23:59:59Z",
+      "winner": "Player456"
+    }
+  ]
+}

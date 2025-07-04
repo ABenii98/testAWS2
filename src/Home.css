@@ -1,0 +1,198 @@
+.home-container {
+  max-width: 1400px; /* Wider container for full screen */
+  margin: 0 auto;
+  padding: 0 40px; /* Increased padding for spread-out feel */
+  color: #ff8c00;
+  background: #2c2c2c;
+}
+
+.home-header {
+  text-align: center;
+  padding: 60px 0; /* More padding for prominence */
+  border-bottom: 3px solid #ff4500;
+}
+
+.home-header h1 {
+  font-size: 4em; /* Larger title for full screen */
+  color: #ff4500;
+  text-shadow: 3px 3px 8px #ff8c00;
+  line-height: 1.2;
+}
+
+.home-header p {
+  font-size: 1.5em; /* Larger text */
+  margin: 20px 0;
+}
+
+.home-cta {
+  margin-top: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 30px; /* Larger buttons */
+  margin: 0 20px; /* More spacing between buttons */
+  background: #ff4500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #ff8c00;
+}
+
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px; /* Increased gap between sections */
+  margin-top: 50px;
+}
+
+.featured-section, .raffle-highlights {
+  flex: 1 1 45%; /* Two-column layout for left side */
+  min-width: 0; /* Prevent overflow */
+}
+
+.community-spotlight, .quick-trade, .activity-feed {
+  flex: 1 1 30%; /* Three sections sharing right side */
+  min-width: 0;
+}
+
+.featured-section, .community-spotlight, .quick-trade, .raffle-highlights, .activity-feed {
+  margin: 20px 0; /* Reduced margin within sections */
+  padding: 30px; /* Increased padding for spread-out feel */
+  border: 2px solid #ff4500;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff4500;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px; /* More spacing between carousel items */
+  padding: 15px 0;
+}
+
+.carousel-item {
+  min-width: 300px; /* Larger items for full screen */
+  text-align: center;
+  padding: 10px;
+}
+
+.carousel-item img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 2px solid #ff8c00;
+  margin-bottom: 15px;
+}
+
+.view-details {
+  display: block;
+  margin-top: 15px;
+  color: #ff4500;
+  text-decoration: underline;
+  font-size: 1.1em;
+}
+
+.community-link, .raffle-link {
+  display: block;
+  margin-top: 15px;
+  color: #ff4500;
+  text-decoration: underline;
+  font-size: 1.1em;
+}
+
+.trade-form {
+  display: flex;
+  gap: 20px; /* More spacing in form */
+  flex-wrap: wrap;
+}
+
+.trade-form input, .trade-form select, .trade-form button {
+  padding: 10px; /* Larger inputs */
+  border: 2px solid #ff4500;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #ff8c00;
+  font-size: 1em;
+}
+
+.trade-form button {
+  background: #ff4500;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.trade-form button:hover {
+  background: #ff8c00;
+}
+
+.activity-feed ul {
+  list-style: none;
+  padding: 0;
+}
+
+.activity-feed li {
+  margin: 15px 0; /* More spacing between items */
+  font-size: 1.1em;
+}
+
+@media (max-width: 1024px) {
+  .home-container {
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+
+  .home-header h1 {
+    font-size: 3em;
+  }
+
+  .home-header p {
+    font-size: 1.2em;
+  }
+
+  .home-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .featured-section, .raffle-highlights, .community-spotlight, .quick-trade, .activity-feed {
+    flex: 1 1 100%;
+  }
+
+  .carousel-item {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 0 15px;
+  }
+
+  .home-header {
+    padding: 40px 0;
+  }
+
+  .home-header h1 {
+    font-size: 2.5em;
+  }
+
+  .home-header p {
+    font-size: 1em;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+  }
+
+  .trade-form input, .trade-form select, .trade-form button {
+    padding: 8px;
+  }
+}

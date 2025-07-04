@@ -1,0 +1,184 @@
+{
+  "items": [
+    {
+      "name": "Charizard",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 50.00,
+      "year": 1999,
+      "condition": "Mint",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Pikachu",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 30.00,
+      "year": 2000,
+      "condition": "Near Mint",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Blastoise",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 40.00,
+      "year": 1999,
+      "condition": "Excellent",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Venusaur",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 35.00,
+      "year": 2000,
+      "condition": "Good",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Mewtwo",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 60.00,
+      "year": 2001,
+      "condition": "Mint",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Dragonite",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 45.00,
+      "year": 2002,
+      "condition": "Near Mint",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Gengar",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 25.00,
+      "year": 2001,
+      "condition": "Good",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Alakazam",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 28.00,
+      "year": 2002,
+      "condition": "Excellent",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Snorlax",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 32.00,
+      "year": 2003,
+      "condition": "Near Mint",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Lapras",
+      "type": "card",
+      "maker": "Nintendo",
+      "price": 27.00,
+      "year": 2003,
+      "condition": "Good",
+      "photoKey": "/Char.jpg"
+    },
+    {
+      "name": "Batman",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 40.00,
+      "year": 2001,
+      "condition": "Good",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Superman",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 35.00,
+      "year": 2002,
+      "condition": "Excellent",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Wonder Woman",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 38.00,
+      "year": 2003,
+      "condition": "Near Mint",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "The Flash",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 30.00,
+      "year": 2004,
+      "condition": "Good",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Green Lantern",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 33.00,
+      "year": 2005,
+      "condition": "Excellent",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Aquaman",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 28.00,
+      "year": 2006,
+      "condition": "Near Mint",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Cyborg",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 25.00,
+      "year": 2007,
+      "condition": "Good",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Martian Manhunter",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 29.00,
+      "year": 2008,
+      "condition": "Excellent",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Hawkgirl",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 26.00,
+      "year": 2009,
+      "condition": "Near Mint",
+      "photoKey": "/Bman.jpg"
+    },
+    {
+      "name": "Nightwing",
+      "type": "action-figure",
+      "maker": "DC",
+      "price": 31.00,
+      "year": 2010,
+      "condition": "Good",
+      "photoKey": "/Bman.jpg"
+    }
+  ]
+}

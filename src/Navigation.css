@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.nav-container {
+  background: #1a1a1a;
+  border-bottom: 0.2vw solid #ff4500;
+  box-shadow: 0 0 1vw #ff4500;
+  padding: 2vh 0; /* Full width with child padding */
+  width: 100%;
+}
+
+.nav-title {
+  color: #ff8c00;
+  font-size: 3vw;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0.2vw 0.2vw 0.5vw #ff4500;
+  text-align: center;
+  padding: 1.5vh 5vw;
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 5vw;
+  width: 100%;
+}
+
+.logo img.nav-logo-img {
+  height: 10vh;
+  max-height: 100px;
+  vertical-align: middle;
+  margin-bottom: 2vh;
+}
+
+.nav-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2vh 0;
+  width: 100%;
+}
+
+.nav-links li {
+  margin: 1.5vh 0;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-link,
+.nav-auth-link {
+  color: #ff8c00;
+  font-size: 2vw;
+  font-family: 'Press Start 2P', cursive;
+  text-decoration: none;
+  display: block;
+  padding: 1vh 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-auth-link:hover {
+  color: #ff4500;
+}
+
+.nav-auth {
+  margin-top: 1.5vh;
+  width: 100%;
+  text-align: center;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-top: 2vh;
+  padding: 0.5vh 1vw; /* Added padding for better touch area */
+}
+
+.hamburger span {
+  width: 5vw;
+  max-width: 30px;
+  height: 0.8vh;
+  background: #ff8c00;
+  margin: 0.5vh 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5vh 0;
+  }
+
+  .nav-title {
+    font-size: 5vw;
+    padding: 1vh 5vw;
+  }
+
+  .nav-content {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1vh 5vw;
+    position: relative;
+  }
+
+  .logo {
+    margin: 0;
+    flex: 0 0 auto; /* Fixed width for logo */
+    text-align: center;
+  }
+
+  .nav-options {
+    display: none;
+    position: absolute;
+    top: 18vh; /* Increased to avoid overlap with logo */
+    left: 5vw; /* Start with left padding */
+    right: 5vw; /* End with right padding */
+    background: #1a1a1a;
+    padding: 2vh 5vw;
+    border-bottom: 0.2vw solid #ff4500;
+    box-shadow: 0 0 1vw #ff4500;
+    z-index: 1000;
+    width: 90vw; /* Ensure full width minus padding */
+  }
+
+  .nav-options.open {
+    display: flex;
+    flex-direction: column; /* Explicitly enforce vertical layout */
+    align-items: center; /* Center items vertically */
+  }
+
+  .nav-links li {
+    margin: 1.5vh 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-auth {
+    margin: 1.5vh 0 0 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: flex;
+    flex: 0 0 auto; /* Fixed width */
+    justify-content: flex-end;
+    padding: 0.5vh 1vw;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(0.7vw, 0.7vh);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(0.7vw, -0.7vh);
+  }
+}
