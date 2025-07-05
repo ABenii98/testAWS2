@@ -1,0 +1,16 @@
+{
+  "resourceName": "dynamodynamite",
+  "tableName": "collection",
+  "partitionKey": {
+    "fieldName": "name",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "askPrice",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "dynamodynamiteTrigger8c70640f"
+  ]
+}

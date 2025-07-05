@@ -1,21 +1,48 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Lambda resource stack creation using Amplify CLI",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"14.0.0\",\"stackType\":\"function-Lambda\",\"metadata\":{\"whyContinueWithGen1\":\"Prefer not to answer\"}}",
   "Parameters": {
+    "RECAPTCHASECRET": {
+      "Type": "String",
+      "Default": ""
+    },
+    "modules": {
+      "Type": "String",
+      "Default": "",
+      "Description": "Comma-delimited list of modules to be executed by a lambda trigger. Sent to resource as an env variable."
+    },
+    "resourceName": {
+      "Type": "String",
+      "Default": ""
+    },
+    "trigger": {
+      "Type": "String",
+      "Default": "true"
+    },
+    "functionName": {
+      "Type": "String",
+      "Default": ""
+    },
+    "roleName": {
+      "Type": "String",
+      "Default": ""
+    },
+    "parentResource": {
+      "Type": "String",
+      "Default": ""
+    },
+    "parentStack": {
+      "Type": "String",
+      "Default": ""
+    },
     "env": {
       "Type": "String"
     },
-    "storagedynamo2482747dName": {
-      "Type": "String",
-      "Default": "storagedynamo2482747dName"
+    "deploymentBucketName": {
+      "Type": "String"
     },
-    "storagedynamo2482747dArn": {
-      "Type": "String",
-      "Default": "storagedynamo2482747dArn"
-    },
-    "storagedynamo2482747dStreamArn": {
-      "Type": "String",
-      "Default": "storagedynamo2482747dArn"
+    "s3Key": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -40,12 +67,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "dynamo2482747dTrigger6c67c337",
+            "testaws31dd32f5VerifyAuthChallengeResponse",
             {
               "Fn::Join": [
                 "",
                 [
-                  "dynamo2482747dTrigger6c67c337",
+                  "testaws31dd32f5VerifyAuthChallengeResponse",
                   "-",
                   {
                     "Ref": "env"
@@ -59,6 +86,15 @@
           "Variables": {
             "ENV": {
               "Ref": "env"
+            },
+            "MODULES": {
+              "Ref": "modules"
+            },
+            "REGION": {
+              "Ref": "AWS::Region"
+            },
+            "RECAPTCHASECRET": {
+              "Ref": "RECAPTCHASECRET"
             }
           }
         },
@@ -69,7 +105,15 @@
           ]
         },
         "Runtime": "nodejs22.x",
-        "Timeout": 25
+        "Timeout": 25,
+        "Code": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": {
+            "Ref": "s3Key"
+          }
+        }
       }
     },
     "LambdaExecutionRole": {
@@ -78,12 +122,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "dynamo2482747dLambdaRole6c67c337",
+            "testaws31dd32f5VerifyAuthChallengeResponse",
             {
               "Fn::Join": [
                 "",
                 [
-                  "dynamo2482747dLambdaRole6c67c337",
+                  "testaws31dd32f5VerifyAuthChallengeResponse",
                   "-",
                   {
                     "Ref": "env"
@@ -153,59 +197,6 @@
           ]
         }
       }
-    },
-    "dynamo2482747dTriggerPolicy": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "lambda-trigger-policy-dynamo2482747d",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:DescribeStream",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:ListStreams"
-              ],
-              "Resource": [
-                {
-                  "Ref": "storagedynamo2482747dStreamArn"
-                }
-              ]
-            }
-          ]
-        }
-      }
-    },
-    "dynamo2482747dTrigger": {
-      "Type": "AWS::Lambda::EventSourceMapping",
-      "DependsOn": [
-        "dynamo2482747dTriggerPolicy"
-      ],
-      "Properties": {
-        "BatchSize": 100,
-        "Enabled": true,
-        "EventSourceArn": {
-          "Ref": "storagedynamo2482747dStreamArn"
-        },
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "LambdaFunction",
-            "Arn"
-          ]
-        },
-        "StartingPosition": "LATEST"
-      }
     }
   },
   "Outputs": {
@@ -222,11 +213,6 @@
         ]
       }
     },
-    "Region": {
-      "Value": {
-        "Ref": "AWS::Region"
-      }
-    },
     "LambdaExecutionRole": {
       "Value": {
         "Ref": "LambdaExecutionRole"
@@ -238,6 +224,11 @@
           "LambdaExecutionRole",
           "Arn"
         ]
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
       }
     }
   }

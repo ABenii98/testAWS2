@@ -12,16 +12,78 @@
       "AmplifyAppId": "dmhm9mmc1a9gr"
     },
     "categories": {
-      "auth": {
-        "testawse18ab5e0": {}
-      },
       "function": {
         "S3Triggerbe52c070": {
           "deploymentBucketName": "amplify-testaws-dev-913e5-deployment",
           "s3Key": "amplify-builds/S3Triggerbe52c070-65534a2f6975496e7561-build.zip"
-        }
+        },
+        "testaws31dd32f5DefineAuthChallenge": {},
+        "testaws31dd32f5CreateAuthChallenge": {},
+        "testaws31dd32f5VerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "6Lf20HcrAAAAAID2K6dAkH3E5352aLOo-sUgaFdO"
+        },
+        "testaws31dd32f5CustomMessage": {
+          "REDIRECTURL": "https://localhost:3000/",
+          "EMAILSUBJECT": "business",
+          "EMAILMESSAGE": "Thanks for signing up for C4 Booming Collectibles! Click the link below to confirm your account:"
+        },
+        "dynamodynamiteTrigger8c70640f": {},
+        "dynamodynamite": {}
       },
       "storage": {
+        "tests3": {}
+      },
+      "auth": {
+        "testaws31dd32f5": {}
+      }
+    }
+  },
+  "devtwo": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-testaws-devtwo-58c1c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::673341113430:role/amplify-testaws-devtwo-58c1c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::673341113430:role/amplify-testaws-devtwo-58c1c-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-testaws-devtwo-58c1c-deployment",
+      "UnauthRoleName": "amplify-testaws-devtwo-58c1c-unauthRole",
+      "StackName": "amplify-testaws-devtwo-58c1c",
+      "StackId": "arn:aws:cloudformation:us-east-1:673341113430:stack/amplify-testaws-devtwo-58c1c/87f72400-594d-11f0-a35d-0affdaf9f2c5",
+      "AmplifyAppId": "dmhm9mmc1a9gr",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-testaws-devtwo-58c1c-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "testaws31dd32f5": {}
+      },
+      "function": {
+        "S3Triggerbe52c070": {
+          "deploymentBucketName": "amplify-testaws-devtwo-58c1c-deployment",
+          "s3Key": "amplify-builds/S3Triggerbe52c070-65534a2f6975496e7561-build.zip"
+        },
+        "dynamodynamiteTrigger8c70640f": {
+          "deploymentBucketName": "amplify-testaws-devtwo-58c1c-deployment",
+          "s3Key": "amplify-builds/dynamodynamiteTrigger8c70640f-3942625135426e634e68-build.zip"
+        },
+        "testaws31dd32f5CreateAuthChallenge": {
+          "deploymentBucketName": "amplify-testaws-devtwo-58c1c-deployment",
+          "s3Key": "amplify-builds/testaws31dd32f5CreateAuthChallenge-3775334859574c435837-build.zip"
+        },
+        "testaws31dd32f5CustomMessage": {
+          "deploymentBucketName": "amplify-testaws-devtwo-58c1c-deployment",
+          "s3Key": "amplify-builds/testaws31dd32f5CustomMessage-4c44755330736d357776-build.zip"
+        },
+        "testaws31dd32f5DefineAuthChallenge": {
+          "deploymentBucketName": "amplify-testaws-devtwo-58c1c-deployment",
+          "s3Key": "amplify-builds/testaws31dd32f5DefineAuthChallenge-62435a38304661624a69-build.zip"
+        },
+        "testaws31dd32f5VerifyAuthChallengeResponse": {
+          "deploymentBucketName": "amplify-testaws-devtwo-58c1c-deployment",
+          "s3Key": "amplify-builds/testaws31dd32f5VerifyAuthChallengeResponse-79454e33756873706930-build.zip"
+        },
+        "dynamodynamite": {}
+      },
+      "storage": {
+        "dynamodynamite": {},
         "tests3": {}
       }
     }

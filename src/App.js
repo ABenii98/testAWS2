@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
 import Home from './Home';
 import Collections from './Collections';
 import Raffles from './Raffles';
@@ -7,7 +10,11 @@ import Management from './Management';
 import Navigation from './Navigation';
 import AddCollectible from './AddCollectible';
 import AddRaffle from './AddRaffle';
+import CheckoutForm from './CheckoutForm'; // 🆕 Import your Stripe form
 import './App.css';
+
+// 🔐 Replace with your real publishable key
+const stripePromise = loadStripe('pk_test_51Rh6qaQRuKPaHWOrqt0pf2pRPH2vvCLh5rUQRWDONPKTY5HrCV15Z00WE9WcuwRREDp0i2zqqDOEhdH4AQVC5CQP00dctHCzRe');
 
 function AppContent() {
   const [showAddCollectible, setShowAddCollectible] = useState(false);
@@ -28,22 +35,27 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/raffles" element={<Raffles />} />
-          <Route path="/management" element={<Management 
-            showAddCollectible={showAddCollectible} 
-            setShowAddCollectible={setShowAddCollectible} 
-            showAddRaffle={showAddRaffle} 
-            setShowAddRaffle={setShowAddRaffle} 
-          />} />
+          <Route path="/management" element={
+            <Management 
+              showAddCollectible={showAddCollectible} 
+              setShowAddCollectible={setShowAddCollectible} 
+              showAddRaffle={showAddRaffle} 
+              setShowAddRaffle={setShowAddRaffle} 
+            />
+          } />
+          {/* 🆕 Add Stripe Checkout route */}
+          <Route path="/checkout" element={<CheckoutForm />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
+
       {showAddCollectible && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0, 0, 0, 0.5)', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="modal-overlay">
           <AddCollectible onClose={() => handleCloseModal('collectible')} />
         </div>
       )}
       {showAddRaffle && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0, 0, 0, 0.5)', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="modal-overlay">
           <AddRaffle onClose={() => handleCloseModal('raffle')} />
         </div>
       )}
@@ -54,7 +66,9 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AppContent />
+      <Elements stripe={stripePromise}>
+        <AppContent />
+      </Elements>
     </Router>
   );
 }

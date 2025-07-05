@@ -1,8 +1,45 @@
 {
   "auth": {
-    "testawse18ab5e0": {
-      "customAuth": false,
-      "dependsOn": [],
+    "testaws31dd32f5": {
+      "customAuth": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "testaws31dd32f5DefineAuthChallenge",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "testaws31dd32f5CreateAuthChallenge",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "testaws31dd32f5VerifyAuthChallengeResponse",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "testaws31dd32f5CustomMessage",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -13,9 +50,12 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "EMAIL"
+          "EMAIL",
+          "NAME"
         ],
-        "socialProviders": [],
+        "socialProviders": [
+          "GOOGLE"
+        ],
         "usernameAttributes": [
           "EMAIL"
         ],
@@ -33,7 +73,7 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "dynamo2482747dTrigger6c67c337": {
+    "dynamodynamiteTrigger8c70640f": {
       "build": true,
       "dependsOn": [
         {
@@ -43,9 +83,29 @@
             "StreamArn"
           ],
           "category": "storage",
-          "resourceName": "dynamo2482747d"
+          "resourceName": "dynamodynamite"
         }
       ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "testaws31dd32f5CreateAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "testaws31dd32f5CustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "testaws31dd32f5DefineAuthChallenge": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "testaws31dd32f5VerifyAuthChallengeResponse": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
@@ -66,10 +126,90 @@
           "resourceName": "S3Triggerbe52c070"
         }
       ]
+    },
+    "AMPLIFY_function_dynamodynamiteTrigger8c70640f_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "dynamodynamiteTrigger8c70640f"
+        }
+      ]
+    },
+    "AMPLIFY_function_dynamodynamiteTrigger8c70640f_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "dynamodynamiteTrigger8c70640f"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5CreateAuthChallenge_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5CreateAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5CreateAuthChallenge_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5CreateAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5CustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5CustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5DefineAuthChallenge_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5DefineAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5DefineAuthChallenge_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5DefineAuthChallenge"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5VerifyAuthChallengeResponse_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5VerifyAuthChallengeResponse"
+        }
+      ]
+    },
+    "AMPLIFY_function_testaws31dd32f5VerifyAuthChallengeResponse_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "testaws31dd32f5VerifyAuthChallengeResponse"
+        }
+      ]
     }
   },
   "storage": {
-    "dynamo2482747d": {
+    "dynamodynamite": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },

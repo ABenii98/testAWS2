@@ -5,6 +5,18 @@
     "env": {
       "Type": "String"
     },
+    "storagedynamodynamiteName": {
+      "Type": "String",
+      "Default": "storagedynamodynamiteName"
+    },
+    "storagedynamodynamiteArn": {
+      "Type": "String",
+      "Default": "storagedynamodynamiteArn"
+    },
+    "storagedynamodynamiteStreamArn": {
+      "Type": "String",
+      "Default": "storagedynamodynamiteArn"
+    },
     "deploymentBucketName": {
       "Type": "String"
     },
@@ -34,12 +46,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "S3Triggerbe52c070",
+            "dynamodynamiteTrigger8c70640f",
             {
               "Fn::Join": [
                 "",
                 [
-                  "S3Triggerbe52c070",
+                  "dynamodynamiteTrigger8c70640f",
                   "-",
                   {
                     "Ref": "env"
@@ -80,12 +92,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "S3Triggerbe52c070LambdaRolebe52c070",
+            "dynamodynamiteLambdaRole8c70640f",
             {
               "Fn::Join": [
                 "",
                 [
-                  "S3Triggerbe52c070LambdaRolebe52c070",
+                  "dynamodynamiteLambdaRole8c70640f",
                   "-",
                   {
                     "Ref": "env"
@@ -154,6 +166,59 @@
             }
           ]
         }
+      }
+    },
+    "dynamodynamiteTriggerPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "lambda-trigger-policy-dynamodynamite",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:DescribeStream",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:ListStreams"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storagedynamodynamiteStreamArn"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "dynamodynamiteTrigger": {
+      "Type": "AWS::Lambda::EventSourceMapping",
+      "DependsOn": [
+        "dynamodynamiteTriggerPolicy"
+      ],
+      "Properties": {
+        "BatchSize": 100,
+        "Enabled": true,
+        "EventSourceArn": {
+          "Ref": "storagedynamodynamiteStreamArn"
+        },
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LambdaFunction",
+            "Arn"
+          ]
+        },
+        "StartingPosition": "LATEST"
       }
     }
   },
